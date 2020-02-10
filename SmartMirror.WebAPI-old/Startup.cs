@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace SmartMirror.WebAPI
 {
@@ -26,35 +26,38 @@ namespace SmartMirror.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            //else
-            //{
-            //    app.UseHsts();
-            //}
 
-            //app.Use( async (context, next) => {
-            //    await next();
+            app.Use(async (context, next) =>
+            {
+                await next();
 
-            //    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
-            //    {
-            //        context.Request.Path = "/index.html";
-            //        await next();
-            //    }
-            //});
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
 
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
-            app.UseMvc();
+            //app.UseMvc();
 
+            app.UseHttpsRedirection();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

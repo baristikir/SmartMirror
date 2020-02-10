@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.WebAPI", "SmartMirror.WebAPI\SmartMirror.WebAPI.csproj", "{F1D3C644-536F-40C3-AFF1-BEC19D252F56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.Web", "SmartMirror.Web\SmartMirror.Web.csproj", "{A127C83B-0868-4117-A437-6E00E0E25069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMirror.Web", "SmartMirror.Web\SmartMirror.Web.csproj", "{316912F2-624B-426D-88F9-032E28FE8586}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMirror.WebAPI", "SmartMirror.WebAPI\SmartMirror.WebAPI.csproj", "{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F1D3C644-536F-40C3-AFF1-BEC19D252F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1D3C644-536F-40C3-AFF1-BEC19D252F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1D3C644-536F-40C3-AFF1-BEC19D252F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1D3C644-536F-40C3-AFF1-BEC19D252F56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{316912F2-624B-426D-88F9-032E28FE8586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{316912F2-624B-426D-88F9-032E28FE8586}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{316912F2-624B-426D-88F9-032E28FE8586}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{316912F2-624B-426D-88F9-032E28FE8586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A127C83B-0868-4117-A437-6E00E0E25069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A127C83B-0868-4117-A437-6E00E0E25069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A127C83B-0868-4117-A437-6E00E0E25069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A127C83B-0868-4117-A437-6E00E0E25069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
