@@ -1,0 +1,25 @@
+<div class="section-container">
+  <h2>
+    Latest Updates
+  </h2>
+  <table class="table table-inverse table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Widget</th>
+        <th>Service</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let widget of widgets">
+        <td>{{ widget.id }}</td>
+        <td>{{ widget.name}}</td>
+        <td>{{ widget.data }}</td>
+        <td>{{ widget.version }}</td>
+        <td>Status</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

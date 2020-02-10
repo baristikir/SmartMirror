@@ -4,4 +4,18 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="ang-dev\src\app\models\server.ts" />
+    <None Remove="ang-dev\src\app\models\user.ts" />
+    <None Remove="ang-dev\src\app\models\widget.ts" />
+    <None Remove="ang-dev\src\routes.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ang-dev\src\app\models\server.ts" />
+    <TypeScriptCompile Include="ang-dev\src\app\models\user.ts" />
+    <TypeScriptCompile Include="ang-dev\src\app\models\widget.ts" />
+    <TypeScriptCompile Include="ang-dev\src\routes.ts" />
+  </ItemGroup>
+
 </Project>
