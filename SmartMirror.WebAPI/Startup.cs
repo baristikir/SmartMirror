@@ -11,11 +11,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using SmartMirror.WebAPI.Models;
 
 namespace SmartMirror.WebAPI
 {
     public class Startup
     {
+        private string _connectionString = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,7 +30,12 @@ namespace SmartMirror.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            _connectionString = Configuration["secretConnectionString"];
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddEntityFrameworkNpgsql().AddDbContext<ApiContext>(opt => opt.UseNpgsql(_connectionString)); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
