@@ -57,12 +57,7 @@ namespace SmartMirror.WebAPI
                 var name = Helpers.MakeUniqueUserName(names);
                 names.Add(name);
 
-                users.Add(new User
-                {
-                    Id = i,
-                    Name = name,
-                    Email = Helpers.MakeUserEmail(name)
-                });
+                users.Add(new User(i,name,Helpers.MakeUserEmail(name)));
             }
 
             return users;
@@ -74,16 +69,15 @@ namespace SmartMirror.WebAPI
 
             for (var i = 0; i < nWidgets; i++)
             {
-                var _apiToken = Helpers.GetApiToken(widgetName);
-
                 widgets.Add(new Widget
                 {
                     WidgetId = i,
                     User = Helpers.GetRandomUser(),
                     ApiToken = Helpers.GetRandomApiToken(),
-                    WidgetName = _apiToken
-                });
+                    WidgetName = "testWidget" + i
+                }) ;
             }
+            return widgets;
         }
     }
 }

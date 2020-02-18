@@ -16,7 +16,7 @@ export class ServerComponent implements OnInit {
     @Input() serverInput: Server;
 
     ngOnInit(): void {
-        this.setServerStatus(this.serverInput.isOnline);
+      this.setServerStatus(this.serverInput.isOnline);
     }
 
     setServerStatus(isOnline: boolean) {

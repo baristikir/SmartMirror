@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SmartMirror.WebAPI.Models;
 
 namespace SmartMirror.WebAPI
 {
@@ -9,11 +10,30 @@ namespace SmartMirror.WebAPI
     {
         private static Random _rand = new Random();
 
+        private static readonly List<string> bizPrefix = new List<string>()
+        {
+            "ABC",
+            "XYZ",
+            "MainSt",
+            "Sales",
+            "Ready",
+            "Magic",
+            "Family"
+        };
+        private static readonly List<string> bizSuffix = new List<string>()
+        {
+            "Books",
+            "Goods",
+            "Foods",
+            "Co",
+            "Logistic",
+            "Bakery"
+        };
+
         private static string GetRandom(IList<string> items)
         {
             return items[_rand.Next(items.Count)];
         }
-
 
         internal static string MakeUniqueUserName(List<string> names)
         {
@@ -34,27 +54,15 @@ namespace SmartMirror.WebAPI
         {
             return $"contact@{userName.ToLower()}.com";
         }
-
-        private static readonly List<string> bizPrefix = new List<string>()
+        #region test methods
+        public static User GetRandomUser()
         {
-            "ABC",
-            "XYZ",
-            "MainSt",
-            "Sales",
-            "Ready",
-            "Magic",
-            "Family"
-        };
-
-        private static readonly List<string> bizSuffix = new List<string>()
+            return new User(_rand.Next(), "Testuser:"+_rand.Next().ToString(), "testmail:"+_rand.Next().ToString());
+        }
+        public static User GetRandomApiToken()
         {
-            "Books",
-            "Goods",
-            "Foods",
-            "Co",
-            "Logistic",
-            "Bakery"
-        };
-
+            return GetRandomUser();
+        }
+        #endregion
     }
 }
