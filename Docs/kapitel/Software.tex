@@ -1,0 +1,32 @@
+\section{Software}
+\subsection{Prerequisites}
+\begin{itemize}
+\item Node.js (Javascript runtime)
+\item Angular
+\item IDE (Visual Studio Code)
+\item Datenbank ()
+\end{itemize}
+
+\subsection{Frontend - SmartMirrorWeb}
+Wir haben unser Frontend mithilfe von Angular 9. Für uns war dies eine Neue Erfahrung, da wir noch nie zuvor damit gearbeitet haben. Das Frontend soll sich lediglich um die Anzeige der Daten kümmern und folgende Funktionen übernehmen:
+\begin{itemize}
+\item Daten vom Backend (SmartMirror.WebApi) anfragen
+\begin{itemize}
+\item alle möglichen Dienste (Widgets)
+\item vom User angemeldeten Dienste
+\end{itemize}
+\item Daten senden
+\begin{itemize}
+\item Dienst aktivieren/ deaktivieren
+\item Benutzereingaben zur Erstellung eines neuen Benutzers
+\end{itemize}
+\item User zur Anmeldung von weiteren externen Diensten, zur jeweiligen Website weiterleiten\footnote{zum Beispiel: wenn der User den neuen Dienst Google Kalender für sich registrieren möchte, muss er sich auf der Website von Google Kalender anmelden um sich zu zertifizieren. Diese sendet dann die zur Authentifizierung notwendigen Credentials, welche vom Backend gespeichert werden müssen }
+\end{itemize} 
+\subsection{Backend - SmartMirror.WebApi}
+Das Backend besteht aus einer eigens Entwickelten Web API, welche zum einen die Anfragen und Daten vom Frontend (SmartMirror.Web) entgegennimmt und bearbeitet, und zum anderen den Datenaustausch mit der eigenen Datenbank und Kommunikation mit den externen API kommuniziert.\\\
+Das Backend besteht zum einen Client-Server. Zum einen stellt er als Server eine eigene API dar, welche vom Frontend genutzt wird. Zum anderen fungiert dieser auch als Client und nutzt die externen API Schnittstellen von Drittanbietern. Besitzt dieser eine extra Komponente, welche auf die interne Datenbank zugreift\\\
+\paragraph{Client Funktion}
+Da der Smart Mirror möglichst viele externe Features verbinden soll, muss die Schnittstelle zu diesen gut strukturiert werden. Daher haben wir uns dazu entschieden, dass jede externe Kommunikation ihre eigene Komponente bekommet, welche bestimmte Standards (Interfaces) bedient. Somit können auch später leicht neue externe API's eingebunden werden, indem die Kommunikation in einer neuen Komponente implementiert wird. Dort müssen dann nur die vorgegebenen Interfaces definiert sein und dann anschließend bekannt gemacht werden, indem diese in eine interne Liste von allen möglichen externen Diensten eingetragen wird.
+\paragraph{Server Funktion}
+
+\paragraph{Kommunikation zur Datenbank}

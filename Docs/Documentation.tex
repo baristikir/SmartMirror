@@ -17,69 +17,18 @@
 
 \input{kapitel/Grundidee.tex}
 
-\section{Aufbau}
-\subsection{Strukturierung}
-Notizen: Dagramme und erklärungen der Funktionsweise\\\
-\subsection{Materialien}
-Der Spiegel besteht aus einem Einwegspiegelglass, welches von einer Seite spiegelt und von der anderen Seite reflektiert. Außerdem haben wir einen Holzrahmen, welcher aus Fassung für das Spiegelglass dient, genutzt. Für die Technik haben wir ein Display für die Anzeigen , ein RasperryPi für die Steuerung und die nötigen Verbindungskabel, wie Spannungsversorgung und Videokabel (HDMI) zur Übertragung der Videosignals zum Display, eingesetzt.\\\
-Für die optinalen Erweiterungen würde man je nachdem welches Feature gewünscht ist, noch eine Picamera (für Facerecognition), RasperryPi Bewegungssensor (Bewegungserkennung)\footnote{\textit{ Raspberry Pi Infrarot Bewegungsmelder:} https://www.reichelt.de/raspberry-pi-infrarot-bewegungsmelder-hc-sr501-rpi-hc-sr501-p224216.html?\&nbc=1}, Gesture Sensor (Gestiksteuerung)\footnote{\textit{3D Gesture Tracking Shield for Raspberry Pi:}  http://wiki.seeedstudio.com/3D-Gesture-Tracking-Shield-for-Raspberry-Pi-MGC3130/} oder ein kleines Mikrophone zur Sprachsteuerung \footnote{\textit{Ansteckmikrofon über Klinke:} https://www.amazon.de/dp/B073GJQKL1/ref=psdc\_1384055031\_t1\_B07WQFNVVQ}
-\\\\\\
-Notizen: Später eintragen welches Raspi Modell, Display, Glass verwendet wurde
+\input{kapitel/Aufbau.tex}
 
-\section{Software}
-\subsection{Prerequisites}
-\begin{itemize}
-\item Node.js (Javascript runtime)
-\item Angular
-\item IDE (Visual Studio Code)
-\item Datenbank ()
-\end{itemize}
+\input{kapitel/Software.tex}
 
-\subsection{Frontend - SmartMirrorWeb}
-Wir haben unser Frontend mithilfe von Angular 9. Für uns war dies eine Neue Erfahrung, da wir noch nie zuvor damit gearbeitet haben. Das Frontend soll sich lediglich um die Anzeige der Daten kümmern und folgende Funktionen übernehmen:
-\begin{itemize}
-\item Daten vom Backend (SmartMirror.WebApi) anfragen
-\begin{itemize}
-\item alle möglichen Dienste (Widgets)
-\item vom User angemeldeten Dienste
-\end{itemize}
-\item Daten senden
-\begin{itemize}
-\item Dienst aktivieren/ deaktivieren
-\item Benutzereingaben zur Erstellung eines neuen Benutzers
-\end{itemize}
-\item User zur Anmeldung von weiteren externen Diensten, zur jeweiligen Website weiterleiten\footnote{zum Beispiel: wenn der User den neuen Dienst Google Kalender für sich registrieren möchte, muss er sich auf der Website von Google Kalender anmelden um sich zu zertifizieren. Diese sendet dann die zur Authentifizierung notwendigen Credentials, welche vom Backend gespeichert werden müssen }
-\end{itemize} 
-\subsection{Backend - SmartMirror.WebApi}
-Das Backend besteht aus einer eigens Entwickelten Web API, welche zum einen die Anfragen und Daten vom Frontend (SmartMirror.Web) entgegennimmt und bearbeitet, und zum anderen den Datenaustausch mit der eigenen Datenbank und Kommunikation mit den externen API kommuniziert.\\\
-Das Backend besteht zum einen Client-Server. Zum einen stellt er als Server eine eigene API dar, welche vom Frontend genutzt wird. Zum anderen fungiert dieser auch als Client und nutzt die externen API Schnittstellen von Drittanbietern. Besitzt dieser eine extra Komponente, welche auf die interne Datenbank zugreift\\\
-\paragraph{Client Funktion}
-Da der Smart Mirror möglichst viele externe Features verbinden soll, muss die Schnittstelle zu diesen gut strukturiert werden. Daher haben wir uns dazu entschieden, dass jede externe Kommunikation ihre eigene Komponente bekommet, welche bestimmte Standards (Interfaces) bedient. Somit können auch später leicht neue externe API's eingebunden werden, indem die Kommunikation in einer neuen Komponente implementiert wird. Dort müssen dann nur die vorgegebenen Interfaces definiert sein und dann anschließend bekannt gemacht werden, indem diese in eine interne Liste von allen möglichen externen Diensten eingetragen wird.
-\paragraph{Server Funktion}
-
-\paragraph{Kommunikation zur Datenbank}
-
-\section{Erweiterungen}
-\subsection{API's}
-
-\begin{itemize}
-\item Google Kalender
-\item Todoist
-\item BVG
-\item Wetter
-\end{itemize}
-\subsection{Hardware}
-\begin{itemize}
-\item Face Recognition
-\item Voice Control
-\item Bewegungssensor
-\end{itemize}
+\input{kapitel/Erweiterungen.tex}
 
 
 \section{Über uns}
 Wir sind zwei Studenten, Baris Tikir und Leon Dodrimong, von der HTW - Hochschule für
 Technik und Wirtschaft Berlin aus dem Fachbereich der Ingenieurwissenschaften und
 Technik. 
+
 
 \section{Anhang}
 \subsection{Verweise}
