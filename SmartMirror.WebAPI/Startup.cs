@@ -18,6 +18,7 @@ namespace SmartMirror.WebAPI
 {
     public class Startup
     {
+        
         private string _connectionString = null;
 
         public Startup(IConfiguration configuration)
@@ -62,7 +63,12 @@ namespace SmartMirror.WebAPI
 
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
-            app.UseMvc();
+            //app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("blog", "api/{controller}/{action}/{id?}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
 
         }
     }
