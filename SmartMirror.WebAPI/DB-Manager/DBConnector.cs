@@ -94,7 +94,6 @@ namespace SmartMirror.WebAPI.DB_Manager
                 }
             }
             throw new NotImplementedException();
-            return 123;
         }
         /// <summary>
         /// Fragt die Id einer gesuchten API in der Datenbank ab
@@ -123,7 +122,6 @@ namespace SmartMirror.WebAPI.DB_Manager
                 }
             }
             throw new NotImplementedException();
-            return 123;
         }
         /// <summary>
         /// Fragt die Id eines gesuchten Nutzerkontos in der Datenbank ab
