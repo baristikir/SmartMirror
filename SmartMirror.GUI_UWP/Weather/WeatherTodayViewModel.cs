@@ -105,7 +105,8 @@ namespace SmartMirror.GUI_UWP.Weather
 
         private void updateTimestamp()
         {
-
+            Initialized = true;
+            LastUpdated = DateTime.Now.ToString("h:mm");
         }
 
         private void updateCurrentAndHourlyForecast()
