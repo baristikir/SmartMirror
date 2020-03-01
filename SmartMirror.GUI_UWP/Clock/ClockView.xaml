@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="SmartMirror.GUI_UWP.Clock.ClockView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmartMirror.GUI_UWP.Clock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{StaticResource clockViewModel}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                Text="{Binding Path=CurrentTime, FallbackValue=Time will be displayed here}"/>
+            <TextBlock
+                HorizontalAlignment="Center"
+                Text="{Binding Path=CurrentDate, FallbackValue=Date will be displayed here}"/>
+        </StackPanel>
+    </Grid>
+</Page>
