@@ -128,6 +128,12 @@
     <Compile Include="Controllers\TimerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyChangedBase.cs" />
+    <Compile Include="Weather\WeatherDetailsModel.cs" />
+    <Compile Include="Weather\WeatherModel.cs" />
+    <Compile Include="Weather\WeatherTodayView.xaml.cs">
+      <DependentUpon>WeatherTodayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Weather\WeatherTodayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -150,6 +156,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Clock\ClockView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Weather\WeatherTodayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
