@@ -6,9 +6,50 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    DataContext="{StaticResource weatherTodayViewModel}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="299*"/>
+            <RowDefinition Height="290*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=CurrentWeather, FallbackValue=Temoerature}" VerticalAlignment="Top"/>
+        <StackPanel Grid.Column="1" Margin="3,0,2,219" HorizontalAlignment="Stretch" Width="100">
+            <TextBlock TextWrapping="Wrap" Text="{Binding Path=CurrentWeather.Conditions,FallbackValue=Conditions}"/>
+        </StackPanel>
+        <ListView x:Name="listView" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="200" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Top"
+                  ItemsSource="{Binding Path=Forecast}" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollMode="Enabled">
 
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Using instances of HourlyForecastViewModel as binding source -->
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Path=Time}" />
+                        <TextBlock Text="{Binding Path=Temperature}" />
+                        <TextBlock Text="{Binding Path=Rainfall}" />
+                        <TextBlock Text="{Binding Path=Snowfall}" />
+                        <TextBlock Text="{Binding Path=Conditions}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <TextBlock HorizontalAlignment="Left" Text="{Binding Path=LastUpdated, FallbackValue=LastUpdated}" VerticalAlignment="Top" Grid.Row="2"/>
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=Sunrise, FallbackValue=Sunrise}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=Sunset, FallbackValue=Sunset}"/>
+            </StackPanel>
+        </ListView>
     </Grid>
 </Page>

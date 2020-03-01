@@ -131,6 +131,7 @@
     <Compile Include="Weather\HourlyForecastViewModel.cs" />
     <Compile Include="Weather\WeatherDetailsModel.cs" />
     <Compile Include="Weather\WeatherModel.cs" />
+    <Compile Include="Weather\WeatherModel_Fake.cs" />
     <Compile Include="Weather\WeatherTodayView.xaml.cs">
       <DependentUpon>WeatherTodayView.xaml</DependentUpon>
     </Compile>

@@ -3,9 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SmartMirror.GUI_UWP"
-    xmlns:clock="using:SmartMirror.GUI_UWP.Clock">
+    xmlns:clock="using:SmartMirror.GUI_UWP.Clock"
+    xmlns:weather="using:SmartMirror.GUI_UWP.Weather">
     <Application.Resources>
         <clock:ClockViewModel x:Key="clockViewModel"/>
+        <weather:WeatherTodayViewModel x:Key="weatherTodayViewModel"/>
     </Application.Resources>
 
 </Application>

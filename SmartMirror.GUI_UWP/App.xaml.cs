@@ -1,5 +1,6 @@
 ﻿using SmartMirror.GUI_UWP.Clock;
 using SmartMirror.GUI_UWP.Controllers;
+using SmartMirror.GUI_UWP.Weather;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,6 +46,10 @@ namespace SmartMirror.GUI_UWP
             await clockModel.Update();
             TimerController.RegisterModel(clockModel);
             (Resources["clockViewModel"] as ClockViewModel).Initialize(clockModel);
+
+            var weatherModel = new WeatherModel_fake();
+            await weatherModel.Update();
+            (Resources["weatherTodayViewModel"] as WeatherTodayViewModel).Initialize(weatherModel);
 
             Frame rootFrame = Window.Current.Content as Frame;
 
