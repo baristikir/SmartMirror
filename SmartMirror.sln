@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.Web", "SmartMir
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.WebAPI", "SmartMirror.WebAPI\SmartMirror.WebAPI.csproj", "{C29480F6-AEB5-49E5-8F05-E73F9AD23B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMirror.GUI", "SmartMirror.GUI\SmartMirror.GUI.csproj", "{6A1263AE-4BEE-461C-92FE-BB22714A0C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.GUI", "SmartMirror.GUI\SmartMirror.GUI.csproj", "{6A1263AE-4BEE-461C-92FE-BB22714A0C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{29CE8C7B-4743-44D9-B447-D5EAD2113EFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6A1263AE-4BEE-461C-92FE-BB22714A0C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A1263AE-4BEE-461C-92FE-BB22714A0C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A1263AE-4BEE-461C-92FE-BB22714A0C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29CE8C7B-4743-44D9-B447-D5EAD2113EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29CE8C7B-4743-44D9-B447-D5EAD2113EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29CE8C7B-4743-44D9-B447-D5EAD2113EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29CE8C7B-4743-44D9-B447-D5EAD2113EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

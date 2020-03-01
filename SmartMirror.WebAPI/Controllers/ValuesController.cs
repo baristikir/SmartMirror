@@ -19,9 +19,9 @@ namespace SmartMirror.WebAPI.Controllers
         };
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<User>> Get()
+        public ActionResult<IEnumerable<User>> Get(User value)
         {
-            return users;
+            return new User[] { value };
         }
         [HttpGet]
         public ActionResult<IEnumerable<string>> test()
