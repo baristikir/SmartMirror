@@ -5,5 +5,4 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SmartMirror.GUI.MainWindow"
         Title="SmartMirror.GUI">
-    Welcome to Avalonia!
 </Window>
