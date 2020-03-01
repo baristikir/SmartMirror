@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Interfaces;
 namespace SmartMirror.WebAPI.Models
 {
-    public class Widget
+    public class Widget:Interfaces.Widget
     {
         public int WidgetId { get; set; }
         public string WidgetName { get; set; }
-        public User User { get; set; }
-        public User ApiToken { get; set; }
+        private User User { get; set; }
+        private User ApiToken { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    class Widget
+    public class Widget
     {
         /// <summary>
         /// Name der Api, zu welcher dieses Widget zuegordnet ist

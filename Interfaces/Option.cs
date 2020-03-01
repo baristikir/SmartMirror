@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    class Option
+    public class Option
     {
         /// <summary>
         /// Name der Option

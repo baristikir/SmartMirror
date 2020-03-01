@@ -8,10 +8,9 @@ namespace Interfaces
 {
     public class User
     {
-        public int UserID { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        //public string Location { get; set; }
+        int UserID { get; set; }
+        string Username { get; set; }
+        string Email { get; set; }
         public User(int id, string name, string email)
         {
             this.UserID = id;

@@ -8,7 +8,8 @@ using System.Data;
 using System.Xml;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
-using SmartMirror.WebAPI.Models;
+//using SmartMirror.WebAPI.Models;
+using Interfaces;
 namespace SmartMirror.WebAPI.DB_Manager
 {
     /// <summary>
