@@ -15,7 +15,7 @@ namespace Interfaces
         /// <summary>
         /// Wert der Options
         /// </summary>
-        public string value;
+        public object value;
         /// <summary>
         /// gibt an,ob die Funktion benötigt wird
         /// </summary>
