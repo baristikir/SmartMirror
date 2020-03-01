@@ -42,6 +42,23 @@ namespace SmartMirror.GUI_UWP.Weather
             }
         }
 
+        private HourlyForecastViewModel currentWeather;
+        public HourlyForecastViewModel CurrentWeather
+        {
+            get
+            {
+                return currentWeather;
+            }
+            set
+            {
+                if (currentWeather != value)
+                {
+                    currentWeather = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         private string sunrise;
         public string Sunrise
         {

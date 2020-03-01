@@ -128,6 +128,7 @@
     <Compile Include="Controllers\TimerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyChangedBase.cs" />
+    <Compile Include="Weather\HourlyForecastViewModel.cs" />
     <Compile Include="Weather\WeatherDetailsModel.cs" />
     <Compile Include="Weather\WeatherModel.cs" />
     <Compile Include="Weather\WeatherTodayView.xaml.cs">
