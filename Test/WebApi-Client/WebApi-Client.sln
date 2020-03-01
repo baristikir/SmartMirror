@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi-Client", "WebApi-Client\WebApi-Client.csproj", "{3A4D5255-EFF1-4BAB-8855-D8AEB1A657E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMirror.WebAPI_Client", "..\..\SmartMirror.WebAPI_Client\SmartMirror.WebAPI_Client.csproj", "{39C49954-296D-42B9-BAE1-1ADFFC6B993E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A4D5255-EFF1-4BAB-8855-D8AEB1A657E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A4D5255-EFF1-4BAB-8855-D8AEB1A657E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A4D5255-EFF1-4BAB-8855-D8AEB1A657E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A4D5255-EFF1-4BAB-8855-D8AEB1A657E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C49954-296D-42B9-BAE1-1ADFFC6B993E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C49954-296D-42B9-BAE1-1ADFFC6B993E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C49954-296D-42B9-BAE1-1ADFFC6B993E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C49954-296D-42B9-BAE1-1ADFFC6B993E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B37B142-0544-4DED-B0C0-C8C34B96BF06}
+	EndGlobalSection
+EndGlobal

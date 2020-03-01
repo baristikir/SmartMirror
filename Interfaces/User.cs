@@ -8,14 +8,18 @@ namespace Interfaces
 {
     public class User
     {
-        int UserID { get; set; }
-        string Username { get; set; }
-        string Email { get; set; }
+        public int UserID { get; private set; }
+        public string Username { get; private set; }
+        public string Email { get; private set; }
         public User(int id, string name, string email)
         {
             this.UserID = id;
             this.Username = name;
             this.Email = email;
+        }
+        public override string ToString()
+        {
+            return "ID:" + UserID.ToString() + ";Username:" + Username + ";E-Mail:" + Email;
         }
     }
 }

@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-//using SmartMirror.WebAPI.Models;
-using Interfaces;
+using SmartMirror.WebAPI.Models;
 namespace SmartMirror.WebAPI.Controllers
 {
     [Route("api/[controller]/[action]")]
@@ -23,7 +22,8 @@ namespace SmartMirror.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> allUsers()
         {
-            return database.getAllUsers().ToArray();
+            User[] users= database.getAllUsers().ToArray();
+            return users;
         }
         [ActionName("users")]
         [HttpGet("{id}")]
@@ -31,8 +31,7 @@ namespace SmartMirror.WebAPI.Controllers
         {
             return database.getUser(id);
         }
-        [ActionName("users")]
-        [HttpGet]
+        
         #endregion
     }
 }

@@ -12,7 +12,9 @@ namespace SmartMirror.WebAPI.Models
         public string Email { get ; private set ; }
         public User(int id, string name, string email):base(id,name,email)
         {
-
+            this.UserID = id;
+            this.Email = email;
+            this.Username = name;
         }
     }
 }

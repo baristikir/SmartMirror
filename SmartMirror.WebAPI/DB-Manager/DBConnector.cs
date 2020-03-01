@@ -8,8 +8,7 @@ using System.Data;
 using System.Xml;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
-//using SmartMirror.WebAPI.Models;
-using Interfaces;
+using SmartMirror.WebAPI.Models;
 namespace SmartMirror.WebAPI.DB_Manager
 {
     /// <summary>
@@ -27,7 +26,7 @@ namespace SmartMirror.WebAPI.DB_Manager
         private string dbName = "SmartMirror";
         //Verbindungsdaten
         private string connectionstring;
-        public DBConnector() : this("192.168.178.75", "SmartMirror", "client", "password") { 
+        public DBConnector() : this("raspberrypi", "SmartMirror", "client", "password") { 
 
         }
         public DBConnector(string serverName_,string dbName_,string DBuser_,string DBauth_)
