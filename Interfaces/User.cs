@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartMirror.WebAPI.Models
+namespace Interfaces
 {
     public class User
     {
@@ -11,7 +12,7 @@ namespace SmartMirror.WebAPI.Models
         public string Username { get; set; }
         public string Email { get; set; }
         //public string Location { get; set; }
-        public User(int id,string name,string email)
+        public User(int id, string name, string email)
         {
             this.UserID = id;
             this.Username = name;

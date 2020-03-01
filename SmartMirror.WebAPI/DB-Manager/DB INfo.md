@@ -1,4 +1,6 @@
 # DB Properties
+## add NuGet-packets
+rechts klick auf Project -> NuGet-Pakete verwalten->durchsuchen->MySql -> installieren
 ## DB Database
 Die zurzeit verwendete heißt SmartMirror. In dieser gibt es folgende Tabellen:
 * Users
