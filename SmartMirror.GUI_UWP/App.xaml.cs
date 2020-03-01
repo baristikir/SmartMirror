@@ -1,5 +1,6 @@
 ﻿using SmartMirror.GUI_UWP.Clock;
 using SmartMirror.GUI_UWP.Controllers;
+using SmartMirror.GUI_UWP.Views;
 using SmartMirror.GUI_UWP.Weather;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace SmartMirror.GUI_UWP
                     // Wenn der Navigationsstapel nicht wiederhergestellt wird, zur ersten Seite navigieren
                     // und die neue Seite konfigurieren, indem die erforderlichen Informationen als Navigationsparameter
                     // übergeben werden
-                    rootFrame.Navigate(typeof(ClockView), e.Arguments);
+                    rootFrame.Navigate(typeof(Main), e.Arguments);
                 }
                 // Sicherstellen, dass das aktuelle Fenster aktiv ist
                 Window.Current.Activate();

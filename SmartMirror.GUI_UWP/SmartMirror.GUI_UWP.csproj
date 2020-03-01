@@ -128,6 +128,9 @@
     <Compile Include="Controllers\TimerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyChangedBase.cs" />
+    <Compile Include="Views\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Weather\HourlyForecastViewModel.cs" />
     <Compile Include="Weather\WeatherDetailsModel.cs" />
     <Compile Include="Weather\WeatherModel.cs" />
@@ -158,6 +161,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Clock\ClockView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
