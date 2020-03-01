@@ -1,4 +1,5 @@
 ﻿using SmartMirror.GUI_UWP.Clock;
+using SmartMirror.GUI_UWP.Controllers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,6 +43,7 @@ namespace SmartMirror.GUI_UWP
         {
             var clockModel = new ClockModel();
             await clockModel.Update();
+            TimerController.RegisterModel(clockModel);
             (Resources["clockViewModel"] as ClockViewModel).Initialize(clockModel);
 
             Frame rootFrame = Window.Current.Content as Frame;
