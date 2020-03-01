@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="SmartMirror.GUI_UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmartMirror.GUI_UWP"
+    xmlns:clock="using:SmartMirror.GUI_UWP.Clock">
+    <Application.Resources>
+        <clock:ClockViewModel x:Key="clockViewModel"/>
+    </Application.Resources>
+
+</Application>
