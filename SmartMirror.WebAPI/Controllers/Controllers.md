@@ -14,7 +14,7 @@ provides methods for the Web-Interface
 > return string[]
 * api/Web/users/(id) [GET]
 > gibt den durch die id bestimmten Username aus der Datenbank zurück
-> return string
+> return User
 * api/Web/users [POST]
 > fügt einen neuen Benutzer mit übergebenen Benutzernamen hinzu
 > input: {id:3,name:"peter",email:"test"}
