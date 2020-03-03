@@ -13,7 +13,20 @@
 \includegraphics[width=120mm]{pictures/Frontend2.png}
 \caption{konzeptioneller Aufbau der Software-Komponenten}
 \end{figure}
-Wir haben unser Frontend mithilfe von Angular 9 entwickelt. Für uns war dies eine Neue Erfahrung, da wir noch nie zuvor damit gearbeitet haben. Das Frontend soll sich lediglich um die Anzeige der Daten kümmern und folgende Funktionen übernehmen:
+Unser Frontend besteht aus einer GUI- und Web-Komponente. Die GUI ist dafür zuständig die Daten, die auf dem Spiegel angeziegt werden zu verwalten und entsprechend auf dem Display hinter dem Spiegel auszugeben. Die Web-Komponente hingegen stellt dem Benutzer über das Web Frontend Funkionalität zur Verwaltung der Benutzerdaten, sowieso zur Verwlatung der Inhalte der GUI, zur Verfügung. Dies kann über ein mobiles Endgerät erreicht werden (Beispielsweise einem im Netzwerk befindlichen Computer oder SmartPhone).\\\
+Das Frontend übernimmt folgende Hauptaufgaben:
+\begin{itemize}
+\item Anzeigen der Daten
+\item Eingabemöglichkeiten anbieten
+\begin{itemize}
+\item GUI: Face Recognition, Voice Control, Motion Control
+\item Web: Web-Formulare, Buttons
+\end{itemize}
+\item Datenaustausch mit Backend
+\end{itemize}
+
+
+
 \begin{itemize}
 \item Daten vom Backend (SmartMirror.WebApi) anfragen
 \begin{itemize}
@@ -27,36 +40,50 @@ Wir haben unser Frontend mithilfe von Angular 9 entwickelt. Für uns war dies ei
 \end{itemize}
 \item User zur Anmeldung von weiteren externen Diensten, zur jeweiligen Website weiterleiten\footnote{zum Beispiel: wenn der User den neuen Dienst Google Kalender für sich registrieren möchte, muss er sich auf der Website von Google Kalender anmelden um sich zu zertifizieren. Diese sendet dann die zur Authentifizierung notwendigen Credentials, welche vom Backend gespeichert werden müssen }
 \end{itemize} 
+
 \subsection{Backend - SmartMirror.WebApi}
 Das Backend besteht aus einer eigens Entwickelten Web API, welche zum einen die Anfragen und Daten vom Frontend (SmartMirror.Web) entgegennimmt und bearbeitet, und zum anderen den Datenaustausch mit der eigenen Datenbank und Kommunikation mit den externen API kommuniziert.\\\
 Das Backend besteht zum einen Client-Server. Zum einen stellt er als Server eine eigene API dar, welche vom Frontend genutzt wird. Zum anderen fungiert dieser auch als Client und nutzt die externen API Schnittstellen von Drittanbietern. Besitzt dieser eine extra Komponente, welche auf die interne Datenbank zugreift\\\
-\subsection{GUI - SmartMirror.GUI}
+Mehr dazu befindet sich im folgenden Kapite \ref{Komponenten}
+
+
+
+\subsection{Komponenten}\label{Komponenten}
+Für das Komponentendiagramm siehe \ref{Komponentendiagramm}.
+\subsubsection{Clients}\label{Clients}
+Da der Smart Mirror möglichst viele externe Features verbinden soll, muss die Schnittstelle zu diesen gut strukturiert werden. Daher haben wir uns dazu entschieden, dass jede externe Kommunikation ihre eigene Komponente bekommet, welche bestimmte Standards (Interfaces) bedient.\\\
+Die Clients, wobei jeder auf eine spezifische externe API ausgreichtet ist, übernehemen die Kommunikationion zu diesen. Sie kümmern sich um die Authorisierung, Datenabfrage und stellen der WebAPI bestimmte einheitliche Funktionen bereit. Jeder Client muss diese implementieren. Zusätzlich ist der Aufbau der Daten, die zwischen der WebAPI und den Clients übertragen werden, vereinheitlicht und fest definiert.\\\
+Diese vereinheitlichten Funktionen und Datenmodelle sind in von uns definierten Interfaces beschrieben. Ein Client muss sich an die vorgebenen Funktionen und Datenmodelle halten. Dabei haben wir geguckt, welche Funktionen essentiell wichtig für die Kommunikation sind und wie wir die Daten optimal strukturieren können. (einige Funktionen um nicht zu sehr ins Detail zu gehen zb.: getData(Options):Data, welche Daten von der API und den Bedingungen abfragt; getOptions():Options, welche die Verfügbaren Optionen abfragt; setToken(string):bool, welche den Authorisierungstoken für den jeweiligen Client setzt).\\\
+Wenn eine neue externe API bereitgestellt werden soll, muss lediglich ein Client programmiert werden, welcher die vorgeschriebenen Funktionen und Datenmodelle implementiert (Interfaces) und die jeweiligen Http-Requests für die API beinhaltet. So kann zu jeder API unter berücksichtigung der Standards ein passender Client programmiert werden. Anschließend muss dieser nur noch der WebAPI bekannt gemacht werden, indem der Client in eine interne Liste von allen möglichen externen Diensten eingetragen wird.\\\
+
+\subsubsection{Database}
+\begin{figure}[h]
+\centering
+\includegraphics[width=80mm]{pictures/Database.png}
+\caption{Aufbau der Datenbank}
+\end{figure}
+Die Datenbank ist die Hauptspeicherkomponente des SmartMirrors. Sie speichert sämtliche Daten. Die Daten haben wir vorerst in drei Tabellen aufgeteilt.\\\
+Die Tabelle "User" speichert Daten in Bezug auf Benutzerprofile, wie zum Beispiel den Benutzernamen mit Email und ordnet jedem Benutzerkonto eine eindeutige ID zu, sodass er darüber authentifiziert werden kann\\\
+In "Token" werden die Authentifizeriungstoken in Bezug auf die entsprechende API vom entsprechendem Benutzerprofil.\\\
+In der ldritten Tabelle "APIs" werden die verschiedenen externen APIs aufgelistet mit entsprechendem Namen. Jeder wird auch hier eine eigene ID zugewiesen. Dies dient dem ClientManager zur Organisation für die Clients und zur Abfrage der entsprechenden Token.\\\
+In Zukunft werden wohl hier noch weitere Daten, wie zum Beispiel, Layouts in Bezug auf das Benutzerprofil und Zustände der APIs eines Benutzerprofils (aktiviert, deaktiviert), anfallen.
+
+\subsubsection{WebAPI}
+\begin{figure}[h]
+\centering
+\includegraphics[width=120mm]{pictures/WebAPI.png}
+\caption{Komponenten der WebAPI}
+\end{figure}
+Die WebAPI besteht aus drei Hauptkomponenten. Zum einen der eigentlichen REST API Schnittstelle, einer Komponente zur Datenbank Verbindung und einer Client Komopente. Die API stellt über eine REST API (Http-Protokoll) Funktionen und Daten zur Verfügung, die die verschiedenen Komponenten verwenden (GUI,Web und externe Clients). Die Funktionen haben wir in zwei Bereiche aufgeteilt. Zum Einen Funktionen, die hauptsächlich von der Web Komponente genutzt werden im WebController, und zum Anderen Funktionalitäten, die hauptsächlich die GUI Komponente Nutzt im GUIController. C\# arbeitet mit Controller, welche über verschiedene URLs angesprochen werden können. Die API ist der wichtigste Kommunikationspunkt für das Frontend. Sie greift außerdem auf die anderen beiden Komponenten (DB\_Connector und Client/Clientmanager) zu.\\\
+Die DB\_connector stellt die Verbindung zur Datenbank her und sendet SQL Requests um Daten auszutauschen.\\\
+Der Clientmanager greift auf die den DB\_Connector zu, um Daten, wie Token für die Authorisierung, abzufragen. Die Hauptaufgabe vom ClientManager ist jedoch, dass organisieren der einzelnen Clients. Da für jede externe API ein bestimmter Client existiert, muss der ClientManager sich merken welcher Client mit welcher externen API (Identifizierung der verschiedenen externen APIs erfolgt über die Datenbank) asoziiert wird. Er nimmt die Anfragen von der API, holt sich den entsprechenden Authorisierungstoken aus der Datenbank und leitet diese Anfrage an den entsprechenden Client weiter. Da jeder Client die Funktionen und Datenmodelle, ,welche in den Interfaces definiert sind, implementiert, kann der ClientManager die entsprechnende Funktion beim Client aufrufen und bekommt Daten in einem definierten Format zurück. Diese Daten werden dann wieder zurück über die API an den anfragenden Client gesendet (meist GUI- oder Web-Komponente).
+
+
+\subsubsection{GUI}
 Die digitale Darstellung, aller Module die zuvor auf der Website konfiguriert wurden, auf dem Spiegel wird durch unsere eigene GUI - Applikation ("Graphical User Interface") ausgeführt. Diese wurde in der Programmiersprache C\# geschrieben, welches uns die simple Erstellung einer Desktop Applikation ermöglichte und uns zudem auch aus dem Studium bekannt ist. 
 Das Ziel war es ein kompatibles System aufzubauen. Deshalb sollte die Applikation Betriebssystem unabhänig sein, dass heißt es sollte auf jedem Betriebssysteme mit gleicher Performance laufen können. Die Wahl mit C\# und .NET hat diese Entscheidung für uns schwer getan, da das .NET Framework und .NET Core ihre Windows Desktop Applikationen eher für "Windows-only", von Microsoft, konzipiert wurden. Das Betriebssystem auf dem Raspberry Pi ist "Raspbian" und basiert auf den Linux Kernel. Das Problem konnten wir mit einigen zusätzlichen Erweiterungen beheben. Um eine Kompatibilität unserer GUI-Applikation mit Linux herstellen zu können, mussten wir zusätzliche Framework Installationen auf den Raspberry Pi durchführen. 
 Eine Lösung wäre das "Avalonia-Framework", welches die Entwicklung von Desktop Applikationen unter .NET Core in der Programmiersprache C\# ermöglicht. Damit könnte man schon von Beginn an die Applikation für Linux entwickeln. Diese Lösungsmöglichkeit wird auch auf unser GUI-Projekt ("SmartMirror.GUI", im GitHub Repository zu finden) angewandt. 
 Für Universelle Windows Systeme haben wir die "SmartMirror.GUI\_UWP" entwickelt. Die Benutzeroberfläche ist identisch wie die SmartMirror.GUI, die selben Funktionalitäten werden unterstützt nur für verschiedene Systeme.
 
-
-\paragraph{Server Funktion}
-
-\paragraph{Kommunikation zur Datenbank}
-
-
-\subsection{Komponenten}\label{Komponenten}
-\subsubsection{Clients}\label{Clients}
-Da der Smart Mirror möglichst viele externe Features verbinden soll, muss die Schnittstelle zu diesen gut strukturiert werden. Daher haben wir uns dazu entschieden, dass jede externe Kommunikation ihre eigene Komponente bekommet, welche bestimmte Standards (Interfaces) bedient
-Die Clients, wobei jeder auf eine spezifische externe API ausgreichtet ist, übernehemen die Kommunikationion zu diesen. Sie kümmern sich um die Authorisierung, Datenabfrage und stellen der WebAPI bestimmte einheitliche Funktionen bereit. Jeder Client muss diese implementieren. Zusätzlich ist der Aufbau der Daten, die zwischen der WebAPI und den Clients übertragen werden, vereinheitlicht und fest definiert. Diese vereinheitlichten Funktionen und Datenmodelle sind in von uns definierten Interfaces beschrieben. Ein Client muss sich an die vorgebenen Funktionen und Datenmodelle halten. Dabei haben wir geguckt, welche Funktionen essentiell wichtig für die Kommunikation sind und wie wir die Daten optimal strukturieren können. (einige Funktionen um nicht zu sehr ins Detail zu gehen zb.: getData(Options):Data, welche Daten von der API und den Bedingungen abfragt; getOptions():Options, welche die Verfügbaren Optionen abfragt; setToken(string):bool, welche den Authorisierungstoken für den jeweiligen Client setzt). Wenn eine neue externe API bereitgestellt werden soll, muss lediglich ein Client programmiert werden, welcher die vorgeschriebenen Funktionen und Datenmodelle implementiert (Interfaces) und die jeweiligen Http-Requests für die API beinhaltet. So kann zu jeder API unter berücksichtigung der Standards ein passender Client programmiert werden. Anschließend muss dieser nur noch der WebAPI bekannt gemacht werden, indem der Client in eine interne Liste von allen möglichen externen Diensten eingetragen wird.\\\
-\subsubsection{WebAPI}
-\begin{figure}[h]
-\centering
-\includegraphics[width=120mm]{pictures/WebAPI.png}
-\caption{konzeptioneller Aufbau der Software-Komponenten}
-\end{figure}
-\subsubsection{Database}
-\begin{figure}[h]
-\centering
-\includegraphics[width=80mm]{pictures/Database.png}
-\caption{konzeptioneller Aufbau der Software-Komponenten}
-\end{figure}
-
-
+\subsubsection{Web}
+Wir haben unser Frontend mithilfe von Angular 9 entwickelt. Für uns war dies eine Neue Erfahrung, da wir noch nie zuvor damit gearbeitet haben.
