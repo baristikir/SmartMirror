@@ -49,7 +49,7 @@
                             <TextBlock Text="{Binding Path=Conditions}" />
                         </StackPanel>
                     </DataTemplate>
-                </ListView.ItemTemplate>
+                </ListView.ItemTemplate> 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Horizontal" />
